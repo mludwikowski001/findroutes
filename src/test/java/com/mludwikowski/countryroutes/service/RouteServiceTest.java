@@ -56,9 +56,7 @@ class RouteServiceTest {
 
         when(countryClient.getCountries()).thenReturn(Collections.singletonList(destinationCountry));
 
-        NoRouteException exception = assertThrows(NoRouteException.class, () -> {
-            routeService.findRoute("Poland", "Germany");
-        });
+        NoRouteException exception = assertThrows(NoRouteException.class, () -> routeService.findRoute("Poland", "Germany"));
 
         assertEquals("Unknown origin country Poland", exception.getMessage());
     }
@@ -69,9 +67,7 @@ class RouteServiceTest {
 
         when(countryClient.getCountries()).thenReturn(Collections.singletonList(originCountry));
 
-        NoRouteException exception = assertThrows(NoRouteException.class, () -> {
-            routeService.findRoute("Poland", "Germany");
-        });
+        NoRouteException exception = assertThrows(NoRouteException.class, () -> routeService.findRoute("Poland", "Germany"));
 
         assertEquals("Unknown destination country Germany", exception.getMessage());
     }
@@ -83,9 +79,7 @@ class RouteServiceTest {
 
         when(countryClient.getCountries()).thenReturn(Arrays.asList(originCountry, destinationCountry));
 
-        NoRouteException exception = assertThrows(NoRouteException.class, () -> {
-            routeService.findRoute("Poland", "Japan");
-        });
+        NoRouteException exception = assertThrows(NoRouteException.class, () -> routeService.findRoute("Poland", "Japan"));
 
         assertEquals("Poland is not connected with Japan by land", exception.getMessage());
     }
@@ -97,9 +91,7 @@ class RouteServiceTest {
 
         when(countryClient.getCountries()).thenReturn(Arrays.asList(originCountry, destinationCountry));
 
-        NoRouteException exception = assertThrows(NoRouteException.class, () -> {
-            routeService.findRoute("Poland", "Germany");
-        });
+        NoRouteException exception = assertThrows(NoRouteException.class, () -> routeService.findRoute("Poland", "Germany"));
 
         assertEquals("Origin country Poland has no neighbours", exception.getMessage());
     }
@@ -111,9 +103,7 @@ class RouteServiceTest {
 
         when(countryClient.getCountries()).thenReturn(Arrays.asList(originCountry, destinationCountry));
 
-        NoRouteException exception = assertThrows(NoRouteException.class, () -> {
-            routeService.findRoute("Poland", "Germany");
-        });
+        NoRouteException exception = assertThrows(NoRouteException.class, () -> routeService.findRoute("Poland", "Germany"));
 
         assertEquals("Destination country Germany has no neighbours", exception.getMessage());
     }
@@ -130,9 +120,7 @@ class RouteServiceTest {
         when(countryClient.getCountries()).thenReturn(Arrays.asList(originCountry, destinationCountry));
         when(bfsHelper.search(any(CountryDTO.class), any(CountryDTO.class), eq(countryMap))).thenReturn(Collections.emptyList());
 
-        NoRouteException exception = assertThrows(NoRouteException.class, () -> {
-            routeService.findRoute("Poland", "Malta");
-        });
+        NoRouteException exception = assertThrows(NoRouteException.class, () -> routeService.findRoute("Poland", "Malta"));
 
         assertEquals("Poland is not connected with Malta by land", exception.getMessage());
     }
