@@ -1,0 +1,4 @@
+feign:
+  country-client:
+    name: countryClient
+    url: https://raw.githubusercontent.com/mledoze/countries/master/countries.json
