@@ -15,7 +15,7 @@ public class RouteController {
     private final RouteService routeService;
 
     @GetMapping("/routing/{origin}/{destination}")
-     public List<String> getData(@PathVariable String origin, @PathVariable String destination){
+     public List<String> findRoute(@PathVariable String origin, @PathVariable String destination){
 
       return routeService.findRoute(origin, destination);
 

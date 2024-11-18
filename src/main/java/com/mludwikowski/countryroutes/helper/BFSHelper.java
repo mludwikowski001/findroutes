@@ -1,7 +1,6 @@
 package com.mludwikowski.countryroutes.helper;
 
 import com.mludwikowski.countryroutes.dto.CountryDTO;
-import com.mludwikowski.countryroutes.exception.NoRouteException;
 
 import java.util.*;
 import java.util.stream.Collectors;
